@@ -1,24 +1,84 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var store:AppStore; let open:(Route)->Void
-    private let cols=[GridItem(.flexible(),spacing:10),GridItem(.flexible(),spacing:10)]
-    var body:some View { ScrollView{ VStack(spacing:12){
-        HStack{ Button{open(.settings)}label:{Image(systemName:"line.3.horizontal")}; Text("PetLingo").font(.largeTitle.bold()); Spacer(); VStack(alignment:.trailing){Text("Hi, 學習者 👋").bold(); Text("持續學習的每一天都很棒！").font(.caption).foregroundStyle(.secondary)}; Button{open(.settings)}label:{Image(systemName:"bell.fill")} }
-        Image("petlingo_home_banner",bundle:.main).resizable().scaledToFill().frame(maxWidth:.infinity).aspectRatio(1.78,contentMode:.fit).clipShape(RoundedRectangle(cornerRadius:24)).shadow(radius:3)
-        Button{open(.daily)}label:{ VStack(spacing:8){HStack{Image(systemName:"medal.fill").font(.system(size:36)).foregroundStyle(.orange); VStack(alignment:.leading){Text("今日任務（成人版）").font(.headline).foregroundStyle(.primary);Text("完成 20 題可獲得獎勵！").font(.caption).foregroundStyle(.secondary)};Spacer();Text("\(min(store.todayAnswered,20)) / 20").font(.title2.bold())};ProgressView(value:Double(min(store.todayAnswered,20)),total:20)}.cardStyle(PLColor.yellowSoft)}.buttonStyle(.plain)
-        LazyVGrid(columns:cols,spacing:10){ FeatureTile("GEPT 單字學習","初級・中級・中高級","book.fill",PLColor.greenSoft){open(.vocabulary)}; FeatureTile("片語學習","常用片語與例句","bubble.left.and.bubble.right.fill",PLColor.pinkSoft){open(.phrase)}; FeatureTile("測驗練習","單字・文法・克漏字","checkmark.circle.fill",PLColor.purpleSoft){open(.quizSetup)}; FeatureTile("閱讀測驗","文章理解與題組","doc.text.fill",PLColor.blueSoft){open(.reading)}; FeatureTile("聽力練習","英美發音訓練","headphones",PLColor.yellowSoft){open(.listeningSetup)}; FeatureTile("口說測驗","語音辨識與評分","mic.fill",PLColor.pinkSoft){open(.speaking)} }
-        HStack(spacing:8){ MiniTool("收藏","\(store.favorites.count) 個","heart.fill"){open(.favorites)}; MiniTool("錯題","\(store.wrongAnswers.count) 題","xmark.circle.fill"){open(.wrong)}; MiniTool("筆記","\(store.notes.count) 則","note.text"){open(.notes)} }
-        HStack(spacing:10){ VStack(alignment:.leading,spacing:5){Text("最近學習").bold(); if let s=store.lastSession{Text(s.modeLabel).font(.caption);Text("\(s.score) 分・正確 \(s.correctCount) 題").foregroundStyle(.green).bold();Text(formatTime(s.totalMillis)).font(.caption)}else{Text("尚未完成測驗").foregroundStyle(.secondary)}}.frame(maxWidth:.infinity,alignment:.leading).cardStyle(); VStack(alignment:.leading,spacing:5){Text("今日建議").bold();Text("建議複習").font(.caption);Text("cooperation").bold();Button("立即複習"){open(.phrase)}}.frame(maxWidth:.infinity,alignment:.leading).cardStyle(PLColor.yellowSoft.opacity(0.6)) }
-        HStack{VStack(alignment:.leading){Text("連續學習天數").bold();Text("7 天").font(.title.bold());Text("太棒了！繼續加油！").font(.caption)};Spacer();Text("🔥").font(.largeTitle)}.cardStyle()
-        HStack{MiniTool("學習分析","能力與表現","chart.bar.fill"){open(.analytics)};MiniTool("學習紀錄","查看歷次紀錄","clock.fill"){open(.history)};MiniTool("設定","音效・顯示","gearshape.fill"){open(.settings)}}
-    }.padding(14) }.background(PLColor.background.ignoresSafeArea()).navigationTitle("") }
+    @EnvironmentObject var store:AppStore
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    let open:(Route)->Void
+    private var isWide:Bool { horizontalSizeClass == .regular }
+    private var cols:[GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing:14), count:isWide ? 3 : 2)
+    }
+    var body:some View {
+        ScrollView {
+            VStack(spacing:isWide ? 18 : 12) {
+                HStack {
+                    Button{open(.settings)}label:{Image(systemName:"line.3.horizontal")}
+                    Text("PetLingo").font(isWide ? .system(size:42,weight:.bold) : .largeTitle.bold())
+                    Spacer()
+                    VStack(alignment:.trailing){Text("Hi, 學習者 👋").bold(); Text("持續學習的每一天都很棒！").font(.caption).foregroundStyle(.secondary)}
+                    Button{open(.settings)}label:{Image(systemName:"bell.fill")}
+                }
+                Image("petlingo_home_banner",bundle:.main)
+                    .resizable().scaledToFill().frame(maxWidth:.infinity)
+                    .aspectRatio(isWide ? 2.35 : 1.78,contentMode:.fit)
+                    .clipShape(RoundedRectangle(cornerRadius:24)).shadow(radius:3)
+                Button{open(.daily)}label:{
+                    VStack(spacing:8){
+                        HStack{
+                            Image(systemName:"medal.fill").font(.system(size:isWide ? 44 : 36)).foregroundStyle(.orange)
+                            VStack(alignment:.leading){Text("今日任務（成人版）").font(.headline).foregroundStyle(.primary);Text("完成 20 題可獲得獎勵！").font(.caption).foregroundStyle(.secondary)}
+                            Spacer();Text("\(min(store.todayAnswered,20)) / 20").font(.title2.bold())
+                        }
+                        ProgressView(value:Double(min(store.todayAnswered,20)),total:20)
+                    }.cardStyle(PLColor.yellowSoft)
+                }.buttonStyle(.plain)
+                LazyVGrid(columns:cols,spacing:14){
+                    FeatureTile("GEPT 單字學習","初級・中級・中高級","book.fill",PLColor.greenSoft){open(.vocabulary)}
+                    FeatureTile("片語學習","常用片語與例句","bubble.left.and.bubble.right.fill",PLColor.pinkSoft){open(.phrase)}
+                    FeatureTile("測驗練習","單字・文法・克漏字","checkmark.circle.fill",PLColor.purpleSoft){open(.quizSetup)}
+                    FeatureTile("閱讀測驗","文章理解與題組","doc.text.fill",PLColor.blueSoft){open(.reading)}
+                    FeatureTile("聽力練習","英美發音訓練","headphones",PLColor.yellowSoft){open(.listeningSetup)}
+                    FeatureTile("口說測驗","語音辨識與評分","mic.fill",PLColor.pinkSoft){open(.speaking)}
+                }
+                HStack(spacing:12){ MiniTool("收藏","\(store.favorites.count) 個","heart.fill"){open(.favorites)}; MiniTool("錯題","\(store.wrongAnswers.count) 題","xmark.circle.fill"){open(.wrong)}; MiniTool("筆記","\(store.notes.count) 則","note.text"){open(.notes)} }
+                HStack(spacing:14){
+                    VStack(alignment:.leading,spacing:5){Text("最近學習").bold(); if let s=store.lastSession{Text(s.modeLabel).font(.caption);Text("\(s.score) 分・正確 \(s.correctCount) 題").foregroundStyle(.green).bold();Text(formatTime(s.totalMillis)).font(.caption)}else{Text("尚未完成測驗").foregroundStyle(.secondary)}}.frame(maxWidth:.infinity,alignment:.leading).cardStyle()
+                    VStack(alignment:.leading,spacing:5){Text("今日建議").bold();Text("建議複習").font(.caption);Text("cooperation").bold();Button("立即複習"){open(.phrase)}}.frame(maxWidth:.infinity,alignment:.leading).cardStyle(PLColor.yellowSoft.opacity(0.6))
+                }
+                HStack{VStack(alignment:.leading){Text("連續學習天數").bold();Text("7 天").font(.title.bold());Text("太棒了！繼續加油！").font(.caption)};Spacer();Text("🔥").font(.largeTitle)}.cardStyle()
+                HStack{MiniTool("學習分析","能力與表現","chart.bar.fill"){open(.analytics)};MiniTool("學習紀錄","查看歷次紀錄","clock.fill"){open(.history)};MiniTool("設定","音效・顯示","gearshape.fill"){open(.settings)}}
+            }
+            .padding(isWide ? 24 : 14)
+            .frame(maxWidth:isWide ? 1100 : .infinity)
+            .frame(maxWidth:.infinity)
+        }
+        .background(PLColor.background.ignoresSafeArea())
+        .navigationTitle("")
+    }
     func formatTime(_ ms:Int)->String{let sec=ms/1000; return "\(sec/60) 分 \(sec%60) 秒"}
 }
 struct FeatureTile:View{let t:String,s:String,i:String;let c:Color;let action:()->Void;init(_ t:String,_ s:String,_ i:String,_ c:Color,_ action:@escaping()->Void){self.t=t;self.s=s;self.i=i;self.c=c;self.action=action};var body:some View{Button(action:action){VStack(spacing:8){Image(systemName:i).font(.system(size:36));Text(t).bold().multilineTextAlignment(.center);Text(s).font(.caption).foregroundStyle(.secondary).multilineTextAlignment(.center)}.frame(maxWidth:.infinity,minHeight:112).cardStyle(c)}.buttonStyle(.plain)}}
 struct MiniTool:View{let t:String,s:String,i:String;let action:()->Void;init(_ t:String,_ s:String,_ i:String,_ action:@escaping()->Void){self.t=t;self.s=s;self.i=i;self.action=action};var body:some View{Button(action:action){VStack(spacing:4){Image(systemName:i);Text(t).font(.caption.bold());Text(s).font(.caption2).foregroundStyle(.secondary).lineLimit(1)}.frame(maxWidth:.infinity,minHeight:70).cardStyle(Color(.secondarySystemBackground),radius:16)}.buttonStyle(.plain)}}
 
-struct LearningHubView:View{let open:(Route)->Void;var body:some View{ScrollView{VStack(spacing:12){Text("學習中心").font(.largeTitle.bold()).frame(maxWidth:.infinity,alignment:.leading); FeatureTile("GEPT 單字學習","依級別搜尋與收藏","book.fill",PLColor.greenSoft){open(.vocabulary)};FeatureTile("片語學習","50 組常用片語","text.bubble.fill",PLColor.pinkSoft){open(.phrase)};FeatureTile("閱讀練習","8 篇文章題組","doc.text.fill",PLColor.blueSoft){open(.reading)};FeatureTile("筆記本","收藏自己的學習重點","note.text",PLColor.purpleSoft){open(.notes)}}.padding()}}}
+struct LearningHubView:View{
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    let open:(Route)->Void
+    private var isWide:Bool { horizontalSizeClass == .regular }
+    private var columns:[GridItem] { Array(repeating:GridItem(.flexible(),spacing:14),count:isWide ? 2 : 1) }
+    var body:some View{
+        ScrollView{
+            VStack(spacing:14){
+                Text("學習中心").font(isWide ? .system(size:40,weight:.bold) : .largeTitle.bold()).frame(maxWidth:.infinity,alignment:.leading)
+                LazyVGrid(columns:columns,spacing:14){
+                    FeatureTile("GEPT 單字學習","依級別搜尋與收藏","book.fill",PLColor.greenSoft){open(.vocabulary)}
+                    FeatureTile("片語學習","50 組常用片語","text.bubble.fill",PLColor.pinkSoft){open(.phrase)}
+                    FeatureTile("閱讀練習","8 篇文章題組","doc.text.fill",PLColor.blueSoft){open(.reading)}
+                    FeatureTile("筆記本","收藏自己的學習重點","note.text",PLColor.purpleSoft){open(.notes)}
+                }
+            }.padding(isWide ? 24 : 16).frame(maxWidth:isWide ? 1000 : .infinity).frame(maxWidth:.infinity)
+        }
+    }
+}
 
 struct VocabularyView:View{ @EnvironmentObject var store:AppStore; @EnvironmentObject var speech:SpeechService; @State private var q=""; @State private var level="全部"; var filtered:[Word]{store.words.filter{w in (q.isEmpty || w.english.localizedCaseInsensitiveContains(q) || w.chinese.contains(q)) && (level=="全部" || w.level.contains(level))}}; var body:some View{List{Section{Picker("級別",selection:$level){ForEach(["全部","初級","中級","中高級"],id:\.self){Text($0)}}.pickerStyle(.segmented);TextField("搜尋英文或中文",text:$q).textFieldStyle(.roundedBorder)};ForEach(filtered.prefix(1000)){w in HStack{VStack(alignment:.leading){Text(w.english).font(.headline);Text(w.chinese);if !w.partOfSpeech.isEmpty{Text(w.partOfSpeech).font(.caption).foregroundStyle(.secondary)}};Spacer();Button{speech.speak(w.english,accent:store.settings.accent,rate:store.settings.speechRate)}label:{Image(systemName:"speaker.wave.2.fill")};Button{store.toggleFavorite(w.id)}label:{Image(systemName:store.favorites.contains(w.id) ? "heart.fill":"heart")}}}}.navigationTitle("GEPT 單字學習")}}
 struct PhraseView:View{@EnvironmentObject var store:AppStore;@EnvironmentObject var speech:SpeechService;var body:some View{List(store.phrases){p in VStack(alignment:.leading,spacing:6){HStack{Text(p.english).font(.headline);Spacer();Button{speech.speak(p.english,accent:store.settings.accent)}label:{Image(systemName:"speaker.wave.2.fill")}};Text(p.chinese);Text(p.example).font(.caption).foregroundStyle(.secondary)}}.navigationTitle("片語學習")}}
