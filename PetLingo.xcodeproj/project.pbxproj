@@ -1,0 +1,79 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEBBE7A85C5C4790AE9D96C7 /* PetLingoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3174DF5C6844E98353CEA3 /* PetLingoApp.swift */; };
+		212C0CFEB735404C87D9526D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F009BE3E5E408092BC769A /* Models.swift */; };
+		75CA8AAA82BC409EA792EE9F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAB206BA89B4E75B040C48E /* Data.swift */; };
+		90686A45165C4E62B7F84129 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295D36EB0D0472AA6258509 /* Services.swift */; };
+		7E274A2470AC42CA9147EB89 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8FBDE12664CCABBD0BAE8 /* AppStore.swift */; };
+		B61BA720D7D84FC2854596B8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C54E8FEBC4A7580FFDC78 /* Theme.swift */; };
+		CBCE48846C1749918F0BBC9E /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6501E08033A846A6850D1797 /* Screens.swift */; };
+		CCD399C333F64D87BEEB3A1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D086B4835B4760B5E3554E /* Assets.xcassets */; };
+		1DF60051847F4F57AB8D728A /* gept_words.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 07D17254CCA0462E84B6BDB6 /* gept_words.tsv */; };
+		CC92E7C5B3794E6BA193FB63 /* toeic_words.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 95DADC056ABF4E9E9B5D419E /* toeic_words.tsv */; };
+		154159F1F6624CA6A8A88EB3 /* tabby.png in Resources */ = {isa = PBXBuildFile; fileRef = E3822F86F5834658AC34D66C /* tabby.png */; };
+		D2D89002B6F446A3BD30954F /* tortoiseshell.png in Resources */ = {isa = PBXBuildFile; fileRef = 74AA6C4258644855B69DD05C /* tortoiseshell.png */; };
+		3D20F55B1F674E5E87456391 /* chihuahua.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EC149099E443EC83DB80C7 /* chihuahua.png */; };
+		51F3953C34DB48B1B7A2594C /* petlingo_home_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = DE409CF12223403D9662557C /* petlingo_home_banner.png */; };
+		7B90D6A4ABB04C20BB3CA758 /* petlingo_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = B541B0B083BF4DBA836FED73 /* petlingo_hero.png */; };
+		660C56B7ECCD48B9B771F8CA /* petlingo_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 232F913071F648DEBBB36D92 /* petlingo_launcher.png */; };
+/* End PBXBuildFile section */
+/* Begin PBXFileReference section */
+		5D3174DF5C6844E98353CEA3 /* PetLingoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetLingoApp.swift; sourceTree = "<group>"; };
+		F7F009BE3E5E408092BC769A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8AAB206BA89B4E75B040C48E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		8295D36EB0D0472AA6258509 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		CDF8FBDE12664CCABBD0BAE8 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		BA6C54E8FEBC4A7580FFDC78 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6501E08033A846A6850D1797 /* Screens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
+		12D086B4835B4760B5E3554E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15CE933B886C46448236B2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07D17254CCA0462E84B6BDB6 /* gept_words.tsv */ = {isa = PBXFileReference; lastKnownFileType = text; path = gept_words.tsv; sourceTree = "<group>"; };
+		95DADC056ABF4E9E9B5D419E /* toeic_words.tsv */ = {isa = PBXFileReference; lastKnownFileType = text; path = toeic_words.tsv; sourceTree = "<group>"; };
+		E3822F86F5834658AC34D66C /* tabby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabby.png; sourceTree = "<group>"; };
+		74AA6C4258644855B69DD05C /* tortoiseshell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tortoiseshell.png; sourceTree = "<group>"; };
+		C2EC149099E443EC83DB80C7 /* chihuahua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chihuahua.png; sourceTree = "<group>"; };
+		DE409CF12223403D9662557C /* petlingo_home_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petlingo_home_banner.png; sourceTree = "<group>"; };
+		B541B0B083BF4DBA836FED73 /* petlingo_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petlingo_hero.png; sourceTree = "<group>"; };
+		232F913071F648DEBBB36D92 /* petlingo_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petlingo_launcher.png; sourceTree = "<group>"; };
+		0197E7A0B66C4F2996F0BA56 /* PetLingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetLingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+/* Begin PBXFrameworksBuildPhase section */
+		4FB162CE10904E6C9B45ED4A = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+/* Begin PBXGroup section */
+		70D9A05789E14F40A696C23E = {isa = PBXGroup; children = (52020D504BB440EB83351912 /* PetLingo */, C482E1F1FF80466DA3402216 /* Products */); sourceTree = "<group>"; };
+		C482E1F1FF80466DA3402216 /* Products */ = {isa = PBXGroup; children = (0197E7A0B66C4F2996F0BA56 /* PetLingo.app */); name = Products; sourceTree = "<group>"; };
+		52020D504BB440EB83351912 /* PetLingo */ = {isa = PBXGroup; children = (5D3174DF5C6844E98353CEA3 /* PetLingoApp.swift */, F7F009BE3E5E408092BC769A /* Models.swift */, 8AAB206BA89B4E75B040C48E /* Data.swift */, 8295D36EB0D0472AA6258509 /* Services.swift */, CDF8FBDE12664CCABBD0BAE8 /* AppStore.swift */, BA6C54E8FEBC4A7580FFDC78 /* Theme.swift */, 6501E08033A846A6850D1797 /* Screens.swift */, 12D086B4835B4760B5E3554E /* Assets.xcassets */, 15CE933B886C46448236B2DC /* Info.plist */, 7726D5CB9C704452B29B4EED /* Resources */); path = PetLingo; sourceTree = "<group>"; };
+		7726D5CB9C704452B29B4EED /* Resources */ = {isa = PBXGroup; children = (07D17254CCA0462E84B6BDB6 /* gept_words.tsv */, 95DADC056ABF4E9E9B5D419E /* toeic_words.tsv */, E3822F86F5834658AC34D66C /* tabby.png */, 74AA6C4258644855B69DD05C /* tortoiseshell.png */, C2EC149099E443EC83DB80C7 /* chihuahua.png */, DE409CF12223403D9662557C /* petlingo_home_banner.png */, B541B0B083BF4DBA836FED73 /* petlingo_hero.png */, 232F913071F648DEBBB36D92 /* petlingo_launcher.png */); path = Resources; sourceTree = "<group>"; };
+/* End PBXGroup section */
+/* Begin PBXNativeTarget section */
+		1451A4000F1249108B1B377E /* PetLingo */ = {isa = PBXNativeTarget; buildConfigurationList = D411AF19155F48B1B33E5B52; buildPhases = (C89C0C6B4C8242B08EE71126, 4FB162CE10904E6C9B45ED4A, 8AEC037EC78A43C78861712C); buildRules = (); dependencies = (); name = PetLingo; productName = PetLingo; productReference = 0197E7A0B66C4F2996F0BA56; productType = "com.apple.product-type.application"; };
+/* End PBXNativeTarget section */
+/* Begin PBXProject section */
+		D65D3FE085594DAE8EC099F8 /* Project object */ = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1600; LastUpgradeCheck = 1600; TargetAttributes = {1451A4000F1249108B1B377E = {CreatedOnToolsVersion = 16.0; }; }; }; buildConfigurationList = 79C8F355E2F548818E01311A; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base); mainGroup = 70D9A05789E14F40A696C23E; productRefGroup = C482E1F1FF80466DA3402216; projectDirPath = ""; projectRoot = ""; targets = (1451A4000F1249108B1B377E); };
+/* End PBXProject section */
+/* Begin PBXResourcesBuildPhase section */
+		8AEC037EC78A43C78861712C = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (CCD399C333F64D87BEEB3A1E /* Assets.xcassets in Resources */, 1DF60051847F4F57AB8D728A /* gept_words.tsv in Resources */, CC92E7C5B3794E6BA193FB63 /* toeic_words.tsv in Resources */, 154159F1F6624CA6A8A88EB3 /* tabby.png in Resources */, D2D89002B6F446A3BD30954F /* tortoiseshell.png in Resources */, 3D20F55B1F674E5E87456391 /* chihuahua.png in Resources */, 51F3953C34DB48B1B7A2594C /* petlingo_home_banner.png in Resources */, 7B90D6A4ABB04C20BB3CA758 /* petlingo_hero.png in Resources */, 660C56B7ECCD48B9B771F8CA /* petlingo_launcher.png in Resources */); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+/* Begin PBXSourcesBuildPhase section */
+		C89C0C6B4C8242B08EE71126 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (BEBBE7A85C5C4790AE9D96C7 /* PetLingoApp.swift in Sources */, 212C0CFEB735404C87D9526D /* Models.swift in Sources */, 75CA8AAA82BC409EA792EE9F /* Data.swift in Sources */, 90686A45165C4E62B7F84129 /* Services.swift in Sources */, 7E274A2470AC42CA9147EB89 /* AppStore.swift in Sources */, B61BA720D7D84FC2854596B8 /* Theme.swift in Sources */, CBCE48846C1749918F0BBC9E /* Screens.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+/* Begin XCBuildConfiguration section */
+		513D5AC6FD3742F5BFCCE5A9 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_OPTIMIZATION_LEVEL = 0; ONLY_ACTIVE_ARCH = YES; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;}; name = Debug; };
+		5C6A8942B5154B13BF3174FB /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; COPY_PHASE_STRIP = YES; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; GCC_C_LANGUAGE_STANDARD = gnu17; SWIFT_COMPILATION_MODE = wholemodule; VALIDATE_PRODUCT = YES;}; name = Release; };
+		D5420F1439A841C796EA64F9 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = PetLingo/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MARKETING_VERSION = 6.0; PRODUCT_BUNDLE_IDENTIFIER = com.petlingo.ios; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2";}; name = Debug; };
+		781A0151195A45968E0E798C /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = PetLingo/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MARKETING_VERSION = 6.0; PRODUCT_BUNDLE_IDENTIFIER = com.petlingo.ios; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2";}; name = Release; };
+/* End XCBuildConfiguration section */
+/* Begin XCConfigurationList section */
+		79C8F355E2F548818E01311A = {isa = XCConfigurationList; buildConfigurations = (513D5AC6FD3742F5BFCCE5A9, 5C6A8942B5154B13BF3174FB); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		D411AF19155F48B1B33E5B52 = {isa = XCConfigurationList; buildConfigurations = (D5420F1439A841C796EA64F9, 781A0151195A45968E0E798C); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = D65D3FE085594DAE8EC099F8 /* Project object */;
+}
