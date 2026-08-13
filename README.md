@@ -1,1 +1,1 @@
-# PetLingo6.4.5-ios
+# ios-kid
