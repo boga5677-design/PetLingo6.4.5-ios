@@ -1,0 +1,85 @@
+name: Build PetLingo iOS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build iPhone + iPad Simulator
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Show Xcode Version
+        run: |
+          xcodebuild -version
+          xcode-select -p
+
+      - name: Show Project
+        run: |
+          pwd
+          ls -la
+          xcodebuild -list \
+            -project PetLingoKids.xcodeproj
+
+      - name: Build
+        run: |
+          set -eo pipefail
+
+          rm -rf "$RUNNER_TEMP/PetLingoKidsDerivedData"
+
+          xcodebuild build \
+            -project PetLingoKids.xcodeproj \
+            -scheme PetLingoKids \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/PetLingoKidsDerivedData" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO
+
+      - name: Find App
+        run: |
+          set -e
+
+          APP=$(find "$RUNNER_TEMP/PetLingoKidsDerivedData/Build/Products" \
+            -type d \
+            -name "*.app" \
+            | head -1)
+
+          echo "APP=$APP"
+
+          if [ -z "$APP" ]; then
+            echo "App not found"
+            find "$RUNNER_TEMP/PetLingoKidsDerivedData" -maxdepth 5 -type d
+            exit 1
+          fi
+
+          echo "Built app:"
+          ls -la "$APP"
+
+          ditto \
+            -c \
+            -k \
+            --sequesterRsrc \
+            --keepParent \
+            "$APP" \
+            PetLingo-iOS-Simulator.zip
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: PetLingo-iOS-Simulator
+          path: PetLingo-iOS-Simulator.zip
+          if-no-files-found: error
