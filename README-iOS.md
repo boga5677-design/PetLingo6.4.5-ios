@@ -50,3 +50,6 @@ CI 不再指定 `name=iPhone 16e` 搭配隱含的 `OS=latest`。某些 GitHub ru
 - iPad regular width 下首頁改為 3 欄功能卡，學習中心改為 2 欄。
 - 寬畫面內容設最大寬度，避免卡片在 11/13 吋 iPad 上被過度拉伸。
 - GitHub Actions 使用 generic iOS Simulator 建置，不綁定特定 iPhone/iPad 型號。
+
+## v6.0.3 GitHub Actions 修正
+此版本為 iPhone + iPad Universal App (`TARGETED_DEVICE_FAMILY = 1,2`)。CI 使用 `generic/platform=iOS Simulator`，不綁定 iPhone 16e。若 Actions 日誌仍出現 `name=iPhone 16e`，請刪除 GitHub 倉庫內的舊 workflow；詳見 `IMPORTANT-GITHUB-ACTIONS.md`。
